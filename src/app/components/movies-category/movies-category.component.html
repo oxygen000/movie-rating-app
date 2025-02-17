@@ -1,0 +1,19 @@
+<div class="category-container">
+    <h2>Movies in "{{ category | titlecase }}"</h2>
+  
+    <div *ngIf="movies.length > 0" class="movies-list">
+      <div *ngFor="let movie of movies" class="movie-card">
+        <img [src]="getPosterUrl(movie.poster_path)" alt="{{ movie.title }}" class="movie-image">
+        <div class="movie-details">
+          <h3>{{ movie.title }}</h3>
+          <p>{{ movie.release_date | date: 'shortDate' }}</p>
+          <p>{{ movie.overview | slice:0:100 }}...</p>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="movies.length === 0" class="no-results">
+      <p>No movies found in this category.</p>
+    </div>
+  </div>
+  

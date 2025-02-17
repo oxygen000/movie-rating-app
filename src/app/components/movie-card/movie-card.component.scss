@@ -1,0 +1,82 @@
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 15px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-5px); /* تأثير عند التمرير على البطاقة */
+    }
+  
+    .movie-image {
+      position: relative;
+      width: 100%;
+      height: 200px; /* تحديد ارتفاع الصورة */
+      overflow: hidden;
+      border-bottom: 1px solid #ddd;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* يضمن تغطية الصورة بشكل جيد */
+      }
+    }
+  
+    .movie-details {
+      padding: 15px;
+  
+      .movie-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+      }
+  
+      .movie-overview {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 10px;
+      }
+  
+      .movie-genres {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 15px;
+  
+        .genre {
+          font-size: 0.9rem;
+          background-color: #eee;
+          padding: 3px 8px;
+          border-radius: 15px;
+          color: #555;
+        }
+      }
+  
+      .movie-footer {
+        display: flex;
+        justify-content: center;
+        
+        .btn-view-details {
+          padding: 8px 20px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+  
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
+  }
+  

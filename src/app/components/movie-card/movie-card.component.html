@@ -1,1 +1,32 @@
-<p>movie-card works!</p>
+<!-- movie-card.component.html -->
+<div class="movie-card">
+  <div class="movie-image">
+    <!-- عرض الصورة باستخدام getPosterUrl -->
+    <img [src]="getPosterUrl(genre.poster_path)" alt="{{ genre.title }}" />
+  </div>
+  <div class="movie-details">
+    <h4 class="movie-title">{{ genre.title }}</h4> <!-- عرض عنوان الفيلم -->
+    
+    <!-- عرض تاريخ الإصدار -->
+    <p class="movie-release-date">Release Date: {{ genre.release_date | date:'shortDate' }}</p>
+    
+    <!-- عرض وصف الفيلم -->
+    <p class="movie-overview">{{ genre.overview | slice:0:200 }}...</p>
+    
+    <!-- عرض التصنيفات -->
+    <div class="movie-genres">
+      <span *ngFor="let g of genre.genres" class="genre">{{ g.name }}</span>
+    </div>
+
+    <!-- عرض التقييم وعدد المراجعات -->
+    <div class="movie-rating">
+      <p>Rating: {{ genre.vote_average }} / 10</p>
+      <p>Reviews: {{ genre.vote_count }} reviews</p>
+    </div>
+
+    <!-- زر عرض التفاصيل -->
+    <div class="movie-footer">
+      <button (click)="viewMovieDetails(genre.id)" class="btn-view-details">View Details</button>
+    </div>
+  </div>
+</div>

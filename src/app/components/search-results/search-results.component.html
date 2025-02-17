@@ -1,0 +1,21 @@
+<div class="search-results-container">
+    <h2>Search Results for "{{ searchQuery }}"</h2>
+    
+    <!-- إذا كانت هناك نتائج بحث -->
+    <div *ngIf="searchResults.length > 0" class="movies-list">
+      <div *ngFor="let movie of searchResults" class="movie-card">
+        <img [src]="getPosterUrl(movie.poster_path)" alt="{{ movie.title }}" class="movie-image">
+        <div class="movie-details">
+          <h3>{{ movie.title }}</h3>
+          <p>{{ movie.release_date | date: 'shortDate' }}</p>
+          <p>{{ movie.overview | slice:0:100 }}...</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- إذا لم توجد نتائج -->
+    <div *ngIf="searchResults.length === 0" class="no-results">
+      <p>No movies found for "{{ searchQuery }}".</p>
+    </div>
+  </div>
+  

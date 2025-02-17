@@ -1,1 +1,11 @@
-<p>movie-list works!</p>
+<!-- movie-list.component.html -->
+<div *ngIf="movies.length > 0" class="movie-list-container">
+    <h3 class="movie-list-title">Movie Genres</h3>
+    <ul class="movie-list">
+      <li *ngFor="let movie of movies" class="movie-item">
+        <!-- تمرير كافة تفاصيل الفيلم إلى مكون app-movie-card -->
+        <app-movie-card [genre]="movie"></app-movie-card>
+      </li>
+    </ul>
+  </div>
+  
