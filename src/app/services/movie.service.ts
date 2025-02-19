@@ -6,11 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MovieService {
-  private apiKey: string = '146cc33178ba64bd19cab6ed9e81edff'; // ضع مفتاح API هنا
+  private apiKey: string = '146cc33178ba64bd19cab6ed9e81edff'; 
   private baseUrl: string = 'https://api.themoviedb.org/3';
 
   constructor(private http: HttpClient) {}
-// قائمة بمعرفات الفئات المسموح بها
 private genreIds: { [key: string]: number } = {
   action: 28,
   adventure: 12,
@@ -33,25 +32,22 @@ private genreIds: { [key: string]: number } = {
   western: 37,
 };
 
-  // جلب جميع الأفلام
   getMovies(): Observable<any> {
     const params = new HttpParams().set('api_key', this.apiKey).set('language', 'en-US');
     return this.http.get(`${this.baseUrl}/discover/movie`, { params });
   }
 
-  // جلب تفاصيل فيلم معين مع جميع التفاصيل (Cast, Reviews, Similar Movies)
   getMovieDetails(id: number): Observable<any> {
     const params = new HttpParams()
       .set('api_key', this.apiKey)
       .set('language', 'en-US')
-      .set('append_to_response', 'credits,reviews,similar');  // إضافة تفاصيل الممثلين، المراجعات، والأفلام المشابهة
+      .set('append_to_response', 'credits,reviews,similar');  
     return this.http.get(`${this.baseUrl}/movie/${id}`, { params });
   }
 
-  // 🔹 تحديث البحث عن الأفلام ليكون أكثر تنظيمًا باستخدام HttpParams
   searchMovies(query: string): Observable<any> {
     if (!query.trim()) {
-      throw new Error('يجب إدخال نص للبحث');
+      throw new Error('You must enter text to search');
     }
   
     const encodedQuery = encodeURIComponent(query.trim());
@@ -59,18 +55,17 @@ private genreIds: { [key: string]: number } = {
       .set('api_key', this.apiKey)
       .set('language', 'en-US')
       .set('query', encodedQuery)
-      .set('include_adult', 'false') // منع عرض محتوى غير مناسب
-      .set('page', '1'); // استرجاع الصفحة الأولى فقط
+      .set('include_adult', 'false') 
+      .set('page', '1'); 
   
     return this.http.get<any>(`${this.baseUrl}/search/movie`, { params });
   }
   
 
-  // 🔹 تحديث جلب الأفلام حسب الفئة لضمان عملها بشكل صحيح
   getMoviesByCategory(category: string): Observable<any> {
     const genreId = this.genreIds[category.toLowerCase()];
     if (!genreId) {
-      throw new Error(`الفئة "${category}" غير مدعومة`);
+      throw new Error(`Category "${category}" Not supported`);
     }
 
     const params = new HttpParams()

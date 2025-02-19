@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from 'src/app/services/movie.service';  // تأكد من أن هذه الخدمة تحتوي على الوظيفة المناسبة
+import { MovieService } from 'src/app/services/movie.service';  
 
 @Component({
   selector: 'app-movies-category',
@@ -28,7 +28,7 @@ export class MoviesCategoryComponent {
         this.movies = response.results;
       },
       (error) => {
-        console.error('حدث خطأ أثناء جلب الأفلام حسب الفئة:', error);
+        console.error('error occurred while fetching movies by category:', error);
       }
     );
   }

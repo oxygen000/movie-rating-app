@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from '../../services/movie.service'; // استيراد الخدمة
+import { MovieService } from '../../services/movie.service'; 
 
 @Component({
   selector: 'app-search-results',
@@ -47,6 +47,6 @@ export class SearchResultsComponent implements OnInit {
   }
 
   getPosterUrl(posterPath: string | null): string {
-    return posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : 'assets/no-image.jpg';
+    return posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : '';
   }
 }

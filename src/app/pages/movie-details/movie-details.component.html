@@ -1,6 +1,4 @@
 <div *ngIf="movie" class="movie-details">
-
-    <!-- غلاف الفيلم -->
     <div class="movie-header">
       <img [src]="getPosterUrl(movie.poster_path)" alt="{{ movie.title }}" class="movie-image">
       <div class="movie-info">
@@ -9,16 +7,12 @@
         <p class="movie-overview"><strong>Overview:</strong> {{ movie.overview }}</p>
       </div>
     </div>
-  
-    <!-- الأنواع -->
-    <div class="movie-genres-section">
+      <div class="movie-genres-section">
       <h3 class="movie-genres-heading">Genres</h3>
       <ul class="movie-genres">
         <li *ngFor="let genre of genres" class="movie-genre">{{ genre.name }}</li>
       </ul>
     </div>
-  
-    <!-- طاقم العمل -->
     <div class="movie-cast-section">
       <h3 class="movie-cast-heading">Cast</h3>
       <div class="movie-cast-list">
@@ -31,8 +25,6 @@
         </div>
       </div>
     </div>
-  
-    <!-- المراجعات -->
     <div class="movie-reviews-section">
       <h3 class="movie-reviews-heading">Reviews</h3>
       <ul class="movie-reviews">
@@ -41,15 +33,12 @@
           <button (click)="showFullReview(review.content)" class="review-button">Read Full Review</button>
         </li>
       </ul>
-  
-      <!-- عرض النص الكامل للمراجعة -->
-      <div *ngIf="selectedReview" class="full-review">
+        <div *ngIf="selectedReview" class="full-review">
         <h4>Full Review:</h4>
         <p>{{ selectedReview }}</p>
         <button (click)="selectedReview = null" class="close-button">Close</button>
       </div>
     </div>
-  
     <div *ngIf="similarMovies.length > 0" class="similar-movies-section">
         <h3 class="similar-movies-heading">Similar Movies</h3>
         <div class="similar-movies-list">
@@ -65,7 +54,6 @@
               <p class="similar-movie-overview">
                 {{ similarMovie.overview | slice:0:100 }}...
               </p>
-              <!-- تغيير الزر هنا -->
               <button class="view-details-button bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
                       (click)="viewMovieDetails(similarMovie.id)">
                 See More Info
@@ -74,10 +62,5 @@
           </div>
         </div>
       </div>
-      
-      
-      
-  
-  
   </div>
   

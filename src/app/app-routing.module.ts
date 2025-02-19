@@ -6,7 +6,7 @@ import { MoviesCategoryComponent } from './components/movies-category/movies-cat
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },  // إعادة التوجيه التلقائي إلى /home
+  { path: '', redirectTo: '/home', pathMatch: 'full' },  
   { path: 'home', component: HomeComponent },
   { path: 'movie/:id', component: MovieDetailsComponent },
   { path: 'movies/:category', component: MoviesCategoryComponent },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';  // تأكد من استيراد Router
+import { ActivatedRoute, Router } from '@angular/router'; 
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -17,14 +17,14 @@ export class MovieDetailsComponent implements OnInit {
   trailerUrl: string | null = null;
 
   constructor(private route: ActivatedRoute, 
-              private router: Router,      // إضافة Router
+              private router: Router,      
               private movieService: MovieService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const movieId = params.get('id');  // استرجاع معرّف الفيلم من الرابط
+      const movieId = params.get('id');  
       if (movieId) {
-        this.getMovieDetails(Number(movieId));  // جلب تفاصيل الفيلم عند تغيير الـ ID
+        this.getMovieDetails(Number(movieId)); 
       }
     });
   }
@@ -48,7 +48,6 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
-  // دالة لعرض النص الكامل للمراجعة عند الضغط على "Read Full Review"
   showFullReview(reviewContent: string): void {
     this.selectedReview = reviewContent;
   }
@@ -67,7 +66,6 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   viewMovieDetails(movieId: number): void {
-    // عند النقر على الزر سيتم توجيه المستخدم إلى صفحة التفاصيل
     this.router.navigate(['/movie', movieId]);
   }
 

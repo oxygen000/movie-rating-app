@@ -7,24 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  categories: string[] = ['comedy', 'action', 'drama', 'adventure', 'horror', 'romance'];  // فئات الأفلام
-  selectedCategory: string = '';  // الفئة المحددة
-  searchQuery: string = '';  // استعلام البحث
+  categories: string[] = ['comedy', 'action', 'drama', 'adventure', 'horror', 'romance'];  
+  selectedCategory: string = ''; 
+  searchQuery: string = ''; 
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  // تغيير الفئة المحددة وتوجيه المستخدم إلى القسم المختار
   filterByCategory(category: string): void {
-    this.selectedCategory = category;  // تعيين الفئة المحددة
-    this.router.navigate(['/movies', category]);  // التنقل إلى صفحة الأفلام الخاصة بالفئة
+    this.selectedCategory = category;  
+    this.router.navigate(['/movies', category]);  
   }
 
-  // البحث عن الأفلام بناءً على استعلام البحث
   searchMovie(): void {
     if (this.searchQuery.trim()) {
-      this.router.navigate(['/search', this.searchQuery]);  // التنقل إلى نتائج البحث
+      this.router.navigate(['/search', this.searchQuery]);  
     }
   }
 }

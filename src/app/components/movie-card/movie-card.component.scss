@@ -11,20 +11,20 @@
     transition: transform 0.3s ease;
   
     &:hover {
-      transform: translateY(-5px); /* تأثير عند التمرير على البطاقة */
+      transform: translateY(-5px); 
     }
   
     .movie-image {
       position: relative;
       width: 100%;
-      height: 200px; /* تحديد ارتفاع الصورة */
+      height: 200px; 
       overflow: hidden;
       border-bottom: 1px solid #ddd;
   
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* يضمن تغطية الصورة بشكل جيد */
+        object-fit: cover; 
       }
     }
   

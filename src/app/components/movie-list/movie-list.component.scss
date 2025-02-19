@@ -1,9 +1,8 @@
-/* movie-list.component.scss */
 .movie-list-container {
     padding: 20px;
-    background-color: #f9f9f9; /* لون خلفية لطيف */
+    background-color: #f9f9f9; 
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل لتحسين المظهر */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
   
   .movie-list-title {
@@ -19,23 +18,23 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* توسيط العناصر */
+    justify-content: center; 
     gap: 20px;
   }
   
   .movie-item {
     width: 300px;
     border: 1px solid #ddd;
-    border-radius: 12px; /* تحسين الزوايا */
+    border-radius: 12px; 
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات تفاعلية */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
   }
   
   .movie-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* تحسين الظل عند التمرير */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
   }
   
   .movie-card {
@@ -52,7 +51,7 @@
   }
   
   .movie-image img:hover {
-    transform: scale(1.1); /* تكبير الصورة عند التمرير */
+    transform: scale(1.1); 
   }
   
   .movie-details {
