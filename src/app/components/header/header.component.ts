@@ -10,6 +10,11 @@ export class HeaderComponent implements OnInit {
   categories: string[] = ['comedy', 'action', 'drama', 'adventure', 'horror', 'romance'];  
   selectedCategory: string = ''; 
   searchQuery: string = ''; 
+  isMenuOpen = false;
+
+toggleMenu() {
+  this.isMenuOpen = !this.isMenuOpen;
+}
 
   constructor(private router: Router) {}
 

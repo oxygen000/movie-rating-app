@@ -1,20 +1,33 @@
 <header class="header">
-    <div class="logo">
-      <h1><a [routerLink]="['/home']">Movie Rating App</a></h1>
-    </div>
-  
-    <nav class="category-nav">
-      <button 
-        *ngFor="let category of categories" 
-        class="category-button" 
-        [ngClass]="{ active: selectedCategory === category }" 
-        (click)="filterByCategory(category)"
-      >
-        {{ category | titlecase }}
-      </button>
-    </nav>
-  
-<div class="search-box">
+  <div class="logo">
+    <h1><a [routerLink]="['/home']">Movie Rating App</a></h1>
+  </div>
+
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+
+  <nav class="mobile-menu" [class.open]="isMenuOpen">
+    <button 
+      *ngFor="let category of categories" 
+      class="category-button" 
+      [ngClass]="{ active: selectedCategory === category }" 
+      (click)="filterByCategory(category); toggleMenu()"
+    >
+      {{ category | titlecase }}
+    </button>
+  </nav>
+
+  <nav class="category-nav">
+    <button 
+      *ngFor="let category of categories" 
+      class="category-button" 
+      [ngClass]="{ active: selectedCategory === category }" 
+      (click)="filterByCategory(category)"
+    >
+      {{ category | titlecase }}
+    </button>
+  </nav>
+
+  <div class="search-box">
     <input 
       type="text" 
       [(ngModel)]="searchQuery" 
@@ -23,6 +36,4 @@
     />
     <button (click)="searchMovie()">Search</button>
   </div>
-  
-  </header>
-  
+</header>
